@@ -1,0 +1,14 @@
+body {
+    background-color: rgb(49, 49, 49);
+}
+p{
+    color: white;
+}
+label{
+    color: white;
+}
+textarea{
+    color:white;
+    background-color: rgb(49, 49, 49);
+    font-size: 14px;
+}

@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Link Cleaner",
     "description": "A simple addon to clean links of redirects",
-    "version": "1.01",
+    "version": "1.0.1",
     "permissions": [
         "contextMenus",
         "tabs",

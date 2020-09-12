@@ -139,7 +139,7 @@ function filterLink(url) {
         if (filter[0] === 'Replace') {
             if (url.includes(filter[1])) {
                 if (filter.length == 3) {
-                    var repalce = ""
+                    var replace = ""
                 } else {
                     var replace = filter[3]
                 }

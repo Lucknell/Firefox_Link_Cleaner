@@ -8,18 +8,25 @@ let defaultFilters = "Split,PARM1=,PARM1=,1\n" +
   "Split,&v=,&v=,0\n" + "Split,&mpre=,&mpre=,1\n" +
   "Split,&event=,&event=,0\n" + "Split,&redir_,&redir,0\n" +
   "Replace,amp/,amp/s/,amp/s/https://\n" + "Split,amp/s,amp/s/,1\n" + "Replace,amp/,amp/,\n" +
-  "Split,bhphotovideo.com,.html,0\n" + "Append,bhphotovideo.com,.html/\n" +
-  "Replace,1225267-11965372?,url=,url=https://staples.com\n" +
-  "Split,dest_url=,dest_url=,1\n" + "Split,url=,url=,1\n" + "Split,ved=,ved=,0\n" + "Split,src=,src=,0\n" + "Split,source=,source=,0\n" +
-  "Split,&red=,&red=,1\n" + "Split,?pf_rd_r=,?pf_rd_r=,0\n" + "Split,d=sec,d=sec,0\n";
+  "Split,bhphotovideo.com,.html,0\n" + "Append,bhphotovideo.com,.html/\n" + "Replace,monoprice.com/,url=,&red=" +
+  "Replace,tkqlhce.com,url=,url=https://staples.com\n" +
+  "Split,dest_url=,dest_url=,1\n" + "Split,adurl=,adurl=,1\n" +"Split,url=,url=,1\n" + "Split,ved=,ved=,0\n" + "Split,src=,src=,0\n" + "Split,source=,source=,0\n" +
+  "Split,&red=,&red=,1\n" + "Split,?pf_rd_r=,?pf_rd_r=,0\n" + "Split,d=sec,d=sec,0\n" + "Split,wmlspartner=,wmlspartner=,0\n" + "Split,&l0=,&l0=,1\n" +
+  "Split,CID,CID,0\n";
 var finalFilter = "";
+var hasError = false;
 function saveOptions(e) {
   document.getElementById('heading').innerHTML = 'Saving...';
+  hasError = false;
   validFilters(document.querySelector("#filters").value)
   browser.storage.sync.set({
     filters: finalFilter
   });
   document.getElementById('heading').innerHTML = 'Saving complete.'
+  if (!hasError) {
+    document.getElementById('heading2').innerHTML = 'Reloading';
+    location.reload();
+  }
   e.preventDefault();
 }
 function resetOptions(e) {
@@ -47,6 +54,7 @@ function validFilters(str) {
   console.log(str);
   lines = str.split(/\r\n|\r|\n/g);
   console.log(lines);
+
   document.getElementById('heading2').innerHTML = "";
   for (i = 0; i < lines.length; i++) {
     filter = lines[i].split(/,/g);
@@ -66,6 +74,7 @@ function validFilters(str) {
     } else {
       document.getElementById('heading2').innerHTML += ' error on line ' + (parseInt(i) + 1);
       console.log("what else is there? \n" + lines[i]);
+      hasError = true;
     }
 
   }

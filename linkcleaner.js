@@ -155,7 +155,7 @@ function filterLink(url) {
         }
         if (filter[0] === 'Append') {
             if (url.includes(filter[1])) {
-                url = +filter[2];
+                url =+filter[2];
             }
         }
     }

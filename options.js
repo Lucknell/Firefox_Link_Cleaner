@@ -10,9 +10,9 @@ let defaultFilters = "Split,PARM1=,PARM1=,1\n" +
   "Replace,amp/,amp/s/,amp/s/https://\n" + "Split,amp/s,amp/s/,1\n" + "Replace,amp/,amp/,\n" +
   "Split,bhphotovideo.com,.html,0\n" + "Append,bhphotovideo.com,.html/\n" + "Replace,monoprice.com/,url=,&red=" +
   "Replace,tkqlhce.com,url=,url=https://staples.com\n" +
-  "Split,dest_url=,dest_url=,1\n" + "Split,adurl=,adurl=,1\n" + "Split,url=,url=,1\n" + "Split,ved=,ved=,0\n" + "Split,src=,src=,0\n" + "Split,source=,source=,0\n" +
-  "Split,&red=,&red=,1\n" + "Split,?pf_rd_r=,?pf_rd_r=,0\n" + "Split,d=sec,d=sec,0\n" + "Split,wmlspartner=,wmlspartner=,0\n" + "Split,&l0=,&l0=,1\n" +
-  "Split,CID,CID,0\n";
+  "Split,dest_url=,dest_url=,1\n" + "Split,adurl=,adurl=,1\n" + "Split,url=,url=,1\n" + "Split,ved=,ved=,0\n" +
+  "Split,src=,src=,0\n" + "Split,source=,source=,0\n" + "Split,&red=,&red=,1\n" + "Split,?pf_rd_r=,?pf_rd_r=,0\n" +
+  "Split,d=sec,d=sec,0\n" + "Split,wmlspartner=,wmlspartner=,0\n" + "Split,&l0=,&l0=,1\n" + "Split,CID,CID,0\n";
 
 var finalFilter = "";
 var hasError = false;

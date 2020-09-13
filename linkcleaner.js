@@ -110,7 +110,6 @@ function cleanLink(args) {
 }
 
 function decodeHTMLSymbols(url) {
-    url += "";
     return url.replace(/%2F/gi, '/')
         .replace(/%3A/gi, ":").replace(/%3F/gi, "?")
         .replace(/%3D/gi, "=").replace(/%26/gi, "&")
@@ -123,7 +122,6 @@ function filterLink(url) {
     let getting = browser.storage.sync.get("filters");
     getting.then(setCurrentChoice, onError);
     filters = defaultFilters.split("\n");
-    url += "";
     for (i = 0; i < filters.length; i++) {
         params = filters[i] + "";
         filter = params.split(",");
@@ -155,7 +153,7 @@ function filterLink(url) {
         }
         if (filter[0] === 'Append') {
             if (url.includes(filter[1])) {
-                url =+filter[2];
+                url = url + filter[2];
             }
         }
     }
